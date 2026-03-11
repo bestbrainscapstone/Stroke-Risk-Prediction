@@ -135,6 +135,69 @@ This project performs a comprehensive Exploratory Data Analysis (EDA) on the Hea
 
 ---
 
+## Residence Type Insights
+
+The dataset includes a **Residence_type** feature representing whether a patient lives in an **Urban** or **Rural** environment.
+
+Key observations from the analysis:
+
+- Urban residents show **slightly higher stroke incidence** compared to rural populations.
+- Urban hypertensive patients demonstrate a **higher stroke prevalence** than rural hypertensive patients.
+- Differences may reflect **lifestyle patterns, healthcare access, stress levels, and environmental factors**.
+
+This feature was explored through categorical comparisons and cross-tabulation with hypertension, age groups, and stroke outcomes.
+
+---
+
+## Visualization
+
+Alongside traditional visualization libraries, **Plotly Express** was used to create **interactive visualizations** for deeper exploration of stroke risk factors.
+
+Interactive plots help analyze relationships between variables such as:
+
+- Age distribution vs stroke occurrence
+- Glucose levels across stroke categories
+- Urban vs Rural stroke incidence
+- Smoking status vs stroke rate
+
+Plotly Express enables dynamic exploration of healthcare data patterns through interactive charts.
+
+---
+
+## Modeling Approach
+
+Following the exploratory analysis, the dataset can be used to train predictive models for stroke risk classification.
+
+### Data Preparation
+
+- Feature encoding for categorical variables
+- Handling class imbalance using techniques such as **SMOTE** or **class weighting**
+- Train-test split
+
+### Candidate Models
+
+Potential models suitable for this classification problem include:
+
+- Logistic Regression
+- Random Forest
+- Gradient Boosting
+- Decision Trees
+
+### Evaluation Metrics
+
+Model performance can be assessed using:
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- Confusion Matrix
+- ROC-AUC
+
+Given the strong class imbalance, **recall and F1 score are more meaningful metrics than accuracy alone.**
+
+---
+
 ## Technology Stack
 
 | Library | Purpose |
@@ -143,6 +206,47 @@ This project performs a comprehensive Exploratory Data Analysis (EDA) on the Hea
 | `numpy` | Numerical computations |
 | `matplotlib` | Line plots, bar charts, and custom visualisations |
 | `seaborn` | Statistical plots (boxplot, histplot, heatmap, countplot) |
+| `plotly.express` | Interactive visualizations for exploratory analysis |
+| `scikit-learn` | Machine learning modelling and evaluation |
+
+---
+
+```markdown
+## Project Structure
+
+```
+
+stroke-prediction-analysis/
+│
+├── stroke_risk.ipynb
+├── healthcare-dataset-stroke-data.csv
+├── README.md
+
+````
+
+---
+
+## How to Run
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/stroke-prediction-analysis.git
+````
+
+### 2. Install dependencies
+
+```bash
+pip install pandas numpy matplotlib seaborn plotly scikit-learn
+```
+
+### 3. Run the notebook
+
+```bash
+jupyter notebook
+```
+
+Open `stroke_risk.ipynb` to explore the full analysis.
 
 ---
 
@@ -150,12 +254,15 @@ This project performs a comprehensive Exploratory Data Analysis (EDA) on the Hea
 
 Stroke incidence in this dataset is primarily driven by **clinical and age-related factors** rather than lifestyle variables alone:
 
-- Stroke risk is predominantly **age-driven** with a non-linear acceleration after 55–60
-- **Cardiovascular disease** (heart disease + hypertension) significantly amplifies risk
-- **Elevated glucose levels** represent a strong biochemical marker for stroke
-- Lifestyle factors (BMI, smoking) contribute **secondary risk**, often interacting with age
-- Class imbalance (~95:5) must be addressed in any downstream predictive modelling
+* Stroke risk is predominantly **age-driven** with a non-linear acceleration after **55–60**
+* **Cardiovascular disease** (heart disease + hypertension) significantly amplifies risk
+* **Elevated glucose levels** represent a strong biochemical marker for stroke
+* Lifestyle factors (BMI, smoking) contribute **secondary risk**, often interacting with age
+* **Class imbalance (~95:5)** must be addressed in any downstream predictive modelling
 
 ---
 
 *Healthcare Stroke EDA — Analysis Report*
+
+```
+```
