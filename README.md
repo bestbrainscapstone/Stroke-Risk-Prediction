@@ -337,5 +337,5 @@ This project demonstrates the potential of machine learning in early stroke risk
 Such predictive tools can play a valuable role in preventive healthcare and risk screening systems.
 ---
 
-*Healthcare Stroke EDA — Analysis Report*
+
 
