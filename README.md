@@ -1,6 +1,8 @@
-# Stroke Prediction Dataset — Exploratory Data Analysis —Modelling
+# Stroke Prediction — Exploratory Data Analysis —Modelling
 
 > | Python · Pandas · Seaborn · Matplotlib · Sckitlearn
+> This project performs a comprehensive Exploratory Data Analysis (EDA) on the Healthcare Stroke Dataset to identify key risk factors associated with stroke incidence. The analysis covers data cleaning, feature engineering, statistical exploration, and multivariate visual analysis.
+The project predicts the likelihood of stroke using patient demographic and health indicators. The goal is to develop a model capable of early stroke risk identification, supporting preventive healthcare decision-making.
 
 ---
 
@@ -22,6 +24,15 @@ Model training and evaluation
 Performance comparison across algorithms
 
 ---
+## Objectives
+
+- Identify key health and demographic factors associated with stroke risk.
+
+- Build robust predictive models for stroke classification.
+
+- Address class imbalance, which is common in medical datasets.
+
+- Evaluate models using reliable metrics beyond accuracy.
 
 ## Dataset
 
@@ -54,13 +65,15 @@ Performance comparison across algorithms
 | `agegroup` *(engineered)* | Categorical | Teens / Young adult / Early midlife / Late midlife / Early Elderly / Old age |
 
 ---
+## Project Pipeline
 
-## Data Cleaning & Preprocessing
+### Data Cleaning & Preprocessing
 
-### Missing Values
+#### Handling missing BMI values
 - Only `bmi` had missing values: **201 rows (~3.93%)**
 - **Strategy:** Median imputation grouped by engineered age group to account for outliers and the age–BMI relationship
 
+### Feature transformation
 | Age Group | Median BMI |
 |---|---|
 | Teens | 19.90 |
@@ -70,12 +83,12 @@ Performance comparison across algorithms
 | Early Elderly | 29.55 |
 | Old Age | 28.00 |
 
+
 ### Outlier Handling
 - `bmi`: Right-skewed with outliers — median imputation used (robust to outliers)
 - `avg_glucose_level`: Right-skewed distribution — retained as-is for modelling
 
-### Encoding & Cleaning
-- `ever_married`: Yes → 1, No → 0
+###  Cleaning
 - `age`: Converted from float to integer
 - `gender`: Removed single `'Other'` record (index 3116) — statistically insignificant (1 row)
 - `id`: Dropped — high cardinality, non-predictive
@@ -178,24 +191,36 @@ Plotly Express enables dynamic exploration of healthcare data patterns through i
 ---
 
 ## Modeling Approach
-
-Following the exploratory analysis, the dataset can be used to train predictive models for stroke risk classification.
-
 ### Data Preparation
+### Dataset Encoding
+- LabelEncoder is used to convert categorical text data into numeric values. Each unique category is mapped to an integer from 0 to n-classes.
+### Dataset normalization
+ - StandarsScaler to normalize numerical variable
 
-- Feature encoding for categorical variables
-  - LabelEncoder is used to convert categorical text data into numeric values. Each unique category is mapped to an integer from 0 to n-classes.
-- Handling class imbalance using  **SMOTE** techniques
+### Handling Class Imbalance
+Medical datasets often contain far fewer positive cases.
+
+To address this:
+
+- SMOTE (Synthetic Minority Oversampling Technique) was used
+
+- This technique generates synthetic examples of the minority class to improve model learning.
+
 - Train-test split
 
-### Candidate Models
+### Machine Learning Models
+Multiple algorithms were trained and evaluated:
 
-Potential models suitable for this classification problem include:
+| Model                                   | Description                                                                                 |
+| --------------------------------------- | ------------------------------------------------------------------------------------------- |
+| **Logistic Regression (LR)**            | Baseline statistical classifier used for interpretable linear relationships.                |
+| **Decision Tree (DT)**                  | Tree-based model that captures nonlinear feature interactions.                              |
+| **Random Forest (RF)**                  | Ensemble of decision trees that reduces overfitting and improves predictive performance.    |
+| **Gradient Boosting (GB)**              | Sequential ensemble model that improves prediction by correcting previous errors.           |
+| **K-Nearest Neighbors (KNN)**           | Distance-based algorithm that classifies samples based on similarity to neighboring points. |
+| **Extreme Gradient Boosting (XGBoost)** | Optimized gradient boosting framework known for high predictive power.                      |
 
-- Logistic Regression
-- Random Forest
-- Gradient Boosting
-- Decision Trees
+ 
 
 ### Evaluation Metrics
 
