@@ -191,8 +191,8 @@ Plotly Express enables dynamic exploration of healthcare data patterns through i
 
 ---
 
-## Modeling Approach
-### Data Preparation
+# Modeling Approach
+## Data Preparation
 ### Dataset Encoding
 - LabelEncoder is used to convert categorical text data into numeric values. Each unique category is mapped to an integer from 0 to n-classes.
 ### Dataset normalization
