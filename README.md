@@ -196,7 +196,7 @@ Plotly Express enables dynamic exploration of healthcare data patterns through i
 ### Dataset Encoding
 - LabelEncoder is used to convert categorical text data into numeric values. Each unique category is mapped to an integer from 0 to n-classes.
 ### Dataset normalization
- - StandarsScaler to normalize numerical variable
+ - StandardScaler to normalize numerical variable
 
 ### Handling Class Imbalance
 Medical datasets often contain far fewer positive cases.
@@ -284,15 +284,13 @@ Therefore, such models should be deployed alongside clinical expertise and prope
 ---
 
 ```markdown
-## Project Structure
-
-```
-
-stroke-prediction-analysis/
+Stroke-Risk-Prediction/
 │
-├── stroke_risk.ipynb
-├── healthcare-dataset-stroke-data.csv
+├── healthcare-dataset-stroke-data.csv/
+├── Best_Brains-strokerisk.ipynb/
+├── plots.zip/
 ├── README.md
+└── requirements.txt
 
 ````
 
@@ -322,8 +320,11 @@ Open `stroke_risk.ipynb` to explore the full analysis.
 
 ---
 
-## Conclusions
+## Future Improvement
+- External dataset validation
+-  Real-time deployment via clinical dashboards
 
+## Conclusions
 Stroke incidence in this dataset is primarily driven by **clinical and age-related factors** rather than lifestyle variables alone:
 
 * Stroke risk is predominantly **age-driven** with a non-linear acceleration after **55–60**
@@ -331,7 +332,9 @@ Stroke incidence in this dataset is primarily driven by **clinical and age-relat
 * **Elevated glucose levels** represent a strong biochemical marker for stroke
 * Lifestyle factors (BMI, smoking) contribute **secondary risk**, often interacting with age
 * **Class imbalance (~95:5)** must be addressed in any downstream predictive modelling
+This project demonstrates the potential of machine learning in early stroke risk prediction. By combining proper data preprocessing, imbalance handling, and ensemble learning techniques, the model achieves high predictive accuracy and excellent AUC performance.
 
+Such predictive tools can play a valuable role in preventive healthcare and risk screening systems.
 ---
 
 *Healthcare Stroke EDA — Analysis Report*
