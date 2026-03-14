@@ -222,20 +222,50 @@ Multiple algorithms were trained and evaluated:
 
  
 
-### Evaluation Metrics
+### Model Evaluation Metrics
 
-Model performance can be assessed using:
+Because the dataset is imbalanced, accuracy alone is misleading. Therefore the models were evaluated using:
 
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- Confusion Matrix
-- ROC-AUC
+Precision
 
-Given the strong class imbalance, **recall and F1 score are more meaningful metrics than accuracy alone.**
+Recall
+
+F1 Score
+
+ROC–AUC
+
+Confusion Matrix
+
+Given the strong class imbalance, **recall and F1 score are more meaningful metrics than accuracy alone.** These metrics provide a better understanding of how well the model detects stroke cases.
 
 ---
+
+## Best Performing Model
+Random Forest Classifier
+
+Performance metrics on the test set:
+| Metric    | Score    |
+| --------- | -------- |
+| Accuracy  | ~94%   |
+| Precision | 93%   |
+| Recall    | 95%   |
+| F1 Score  | 0.94    |
+| ROC-AUC   | **0.98** |
+
+The model correctly classified 904 non-stroke cases and 919 stroke cases. It produced only 68 false positives and missed 53 stroke cases.The model demonstrates excellent discrimination ability, with an AUC of 0.98, meaning it can almost perfectly distinguish stroke from non-stroke patients.
+
+## Ethical Considerations
+While predictive models can support healthcare decisions, several ethical considerations remain important:
+
+- Model bias may arise from demographic imbalances in training data.
+
+- Predictions should support clinicians, not replace them.
+
+- False negatives may delay treatment, while false positives may cause unnecessary concern.
+
+Therefore, such models should be deployed alongside clinical expertise and proper validation.
+
+
 
 ## Technology Stack
 
@@ -247,6 +277,8 @@ Given the strong class imbalance, **recall and F1 score are more meaningful metr
 | `seaborn` | Statistical plots (boxplot, histplot, heatmap, countplot) |
 | `plotly.express` | Interactive visualizations for exploratory analysis |
 | `scikit-learn` | Machine learning modelling and evaluation |
+| `Imbalanced-learn` | For imbalanced target vector|
+| `XGBoost` | Machine learning modelling and evaluation |
 
 ---
 
