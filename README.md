@@ -1,12 +1,25 @@
-# Stroke Prediction Dataset — Exploratory Data Analysis
+# Stroke Prediction Dataset — Exploratory Data Analysis —Modelling
 
-> Healthcare Analytics Project | Python · Pandas · Seaborn · Matplotlib
+> | Python · Pandas · Seaborn · Matplotlib · Sckitlearn
 
 ---
 
 ## Project Overview
+Stroke remains one of the leading causes of death and long-term disability worldwide. Early identification of individuals at high risk can significantly improve preventive interventions.
 
-This project performs a comprehensive Exploratory Data Analysis (EDA) on the Healthcare Stroke Dataset to identify key risk factors associated with stroke incidence. The analysis covers data cleaning, feature engineering, statistical exploration, and multivariate visual analysis.
+This project applies machine learning techniques to analyze patient health data and build predictive models capable of identifying stroke risk with high reliability.
+
+The workflow includes:
+
+Data exploration and preprocessing
+
+Feature engineering
+
+Handling class imbalance
+
+Model training and evaluation
+
+Performance comparison across algorithms
 
 ---
 
@@ -171,7 +184,8 @@ Following the exploratory analysis, the dataset can be used to train predictive 
 ### Data Preparation
 
 - Feature encoding for categorical variables
-- Handling class imbalance using techniques such as **SMOTE** or **class weighting**
+  - LabelEncoder is used to convert categorical text data into numeric values. Each unique category is mapped to an integer from 0 to n-classes.
+- Handling class imbalance using  **SMOTE** techniques
 - Train-test split
 
 ### Candidate Models
